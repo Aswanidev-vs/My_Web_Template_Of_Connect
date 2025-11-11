@@ -63,7 +63,7 @@ func SignupHandler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`
-    <p>Email already registered</p>
+    // <p>Email already registered</p>
     <script>
             window.location.href = '/signup';
     </script>

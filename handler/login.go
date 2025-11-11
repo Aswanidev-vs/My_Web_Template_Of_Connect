@@ -43,7 +43,8 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	// Validate user
 	user, err := db.GetUserByEmail(req.Email)
 	if err != nil || bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)) != nil {
-		http.Error(w, "Invalid email or password", http.StatusUnauthorized)
+		// http.Error(w, "Invalid email or password", http.StatusUnauthorized)
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
 
